@@ -1,0 +1,203 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    width: 100vw;
+    height: 100vh;
+    background: url(./3.jpg) no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+.scroll-text {
+    font-size: 36px; /* 修改文字大小 */
+    color: #817e81; /* 修改文字颜色 */
+    font-family: Arial, sans-serif; /* 修改字体 */
+    position: absolute; /* 绝对定位，跟随父元素 .content 移动 */
+    top: 10%; /* 比如在中心线上 */
+    left: 0;
+    transform: translateY(-50%); /* 上下居中 */
+    white-space: nowrap; /* 不换行 */
+    animation: scroll 10s linear infinite; /* 调用之前定义的滚动动画 */
+  }
+  
+@keyframes scroll {
+    from {
+      transform: translateX(100%); /* 从右向左移动 */
+    }
+    to {
+      transform: translateX(-100%); /* 持续循环滚动 */
+    }
+  }
+
+.login-content {
+    position: relative;
+    width: 800px;
+    height: 360px;
+    margin-left: 600px;
+    background-color:rgba(105, 169, 147, 0.7) ;
+    border-radius: 30px;
+    padding: 30px;
+}
+
+.banner-box {
+    display: inline-block;
+    width: 500px;
+    height: 100%;
+    /*background-color: rgb(0, 92, 92);*/
+    background: url(./3.jpg) no-repeat;
+    background-size: cover;
+    border-radius: 20xp 0 0 20px;
+}
+
+.login-box {
+    width: 330px;
+    height: 100%;
+    /*background-color: rgb(137, 109, 75);*/
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 0 30px 30px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-box > h1 {
+    font-size: 36px;
+    margin: 60px 0;
+    color: #fff;
+}
+
+.login-box > input{
+    margin-bottom: 20px;
+    width: 200px;
+    height: 36px;
+    padding: 0 20px;
+    border-radius: 36px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+}
+
+.login-btn {
+    margin-top: 20px;
+    width: 200px;
+    height: 40px;
+    background-color: green;
+    border: none;
+    border-radius: 40px;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 900px){
+    .login-content{
+        margin: 0 30px;
+    }
+    
+    .banner-box{
+        border-radius: 20px;
+    }
+    .login-box{
+        background-color: rgb(105, 169, 147, 0.5) ;
+        
+    }
+
+    
+}
+@media screen and (max-width: 600px){
+    .content{
+        background: url(./3.jpg) no-repeat center;
+    }
+
+    .login-content{
+        background-color: rgb(105, 169, 147, 0);
+        
+    }
+    
+    .banner-box{
+        display: none;
+    }
+
+    .banner-box{
+        position: initial;
+        margin: -40px auto;
+        background-color:rgb(105, 169, 147, 0) ;
+    }
+}
+/*body*/
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    /*转化成弹性盒*/
+    justify-content: center;
+    /*主轴的水平居中*/
+}
+/*div样式*/
+#pic {
+    margin-top: 300px;
+    display: flex;
+    /*横过来排序*/
+    width: 350px;
+    height: 200px;
+    transform-style: preserve-3d;
+    /*三维空间*/
+    perspective: 1500px;
+    animation: action 20s linear infinite;
+    /*设置时间20s，以及让他匀速播放*/
+}
+#pic:hover{
+    cursor: pointer;
+    /*出现小手*/
+    animation-play-state: paused;
+    /*鼠标放上去停止*/
+}
+@keyframes action{
+    from{
+        transform: rotateY(0deg);
+    }
+    to{
+        transform: rotateY(360deg);
+    }
+}
+#pic img{
+    position: absolute;
+    /*重叠到一起*/
+    width: 350px;
+    height: 200px;
+    -webkit-box-reflect: below 15px -webkit-linear-gradient(transparent 10%,rgba(255,255,255,0.3)) ;
+    /*-webkit-box-reflect 阴影与照片的距离， 修改照照片的透明度以及颜色*/
+}
+#pic img:nth-child(1){
+    transform: translateZ(500px);
+}
+#pic img:nth-child(2){
+    transform: rotateY(72deg) translateZ(500px);
+}
+#pic img:nth-child(3){
+    transform: rotateY(144deg) translateZ(500px);
+}
+#pic img:nth-child(4){
+    transform: rotateY(216deg) translateZ(500px);
+}
+#pic img:nth-child(5){
+    transform: rotateY(288deg) translateZ(500px);
+}
+
+
+#time {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: #1708e0;
+}
